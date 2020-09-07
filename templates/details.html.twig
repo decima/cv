@@ -1,0 +1,19 @@
+<div class="details">
+    {% for detail in details %}
+        <h4>{{ detail.title }}</h4>
+        <div class="description">
+            {{ detail.description|md|raw }}
+        </div>
+    {% endfor %}
+</div>
+<style>
+    .details h4 {
+        border-bottom: 2px solid var(--main-color);
+        color: var(--main-color);
+
+    }
+
+    .details .description {
+        text-align: justify;
+    }
+</style>

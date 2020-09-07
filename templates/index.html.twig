@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ user.firstname }} {{ user.lastname }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.14.0/css/all.css"
+          integrity="sha384-VhBcF/php0Z/P5ZxlxaEx1GwqTQVIBu4G4giRWxTKOCjTxsPFETUDdVL5B6vYvOt" crossorigin="anonymous">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+        :root {
+            --main-color: #3399FF;
+        }
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+            -webkit-print-color-adjust: exact;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .badge {
+            border: 0px solid white;
+        }
+
+        .container {
+            margin-top: 60px;
+        }
+
+        .text-thin {
+            font-weight: 300 !important;
+        }
+
+        .text-normal {
+            font-weight: 400 !important;
+        }
+
+        .text-bolder {
+            font-weight: 700 !important;
+        }
+
+        h4, .misc-row {
+            margin-top: 24px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--main-color);
+            color: var(--main-color);
+            font-size: 3rem;
+            margin-top: 25px;
+            padding: 5px 0px 5px;
+            font-weight: bolder;
+        }
+
+        h5 {
+            margin-bottom: 16px;
+        }
+
+        .container > h2:first-of-type {
+            margin-top: 0px;
+        }
+
+        .skills .badge {
+            margin-bottom: 6px;
+        }
+
+        .text-info {
+            color: var(--main-color) !important;
+        }
+
+        .badge-info {
+            background-color: var(--main-color);
+        }
+        .next-page{
+            page-break-before: always;
+            width: 100%;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--
+        <div class="col-2">
+            <img class="img-fluid rounded-circle"
+                 src="https://www.gravatar.com/avatar/{{ user.email|trim|lower|md5 }}?s=1000"/>
+
+        </div>
+        -->
+        <div class="col-10">
+            <h1><span class="text-thin">I am</span> <span class="text-bolder">{{ user.firstname }}</span>,
+                <br/><small class="text-normal">{{ user.title }}</small></h1>
+            <h3 class="text-thin">{{ user.subtitle }}</h3>
+            <p>{{ user.description }}</p>
+        </div>
+        <div class="col-2 float-right text-right">
+
+            {% for socialNetwork, socialLink in social %}
+                <a href="{{ socialLink[0] }}" target="_blank"
+                   class="text-info ml-2">{% if socialNetwork in ["globe", "blog"] %}<i
+                        class="fas fa-{{ socialNetwork }}"
+                        style="font-size: 1.5em"></i>{% else %}
+                        <i class="fab fa-{{ socialNetwork }}" style="font-size: 1.5em"></i>{% endif %}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="row skills">
+        {% for section, skill in skills %}
+            <div class="col">
+                <h4><span><i class="fal fa-{{ skill._icon }}"></i></span> <span class="text-bolder">{{ section }}</span>
+                </h4>
+                <h4>
+                    {% for item, level in skill %}
+                        {% if item != "_icon" %}
+                            <span class=" badge badge-info">
+                            {{ item }}
+                    </span>
+                        {% endif %}
+                    {% endfor %}
+                </h4>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <h2>Work Experience</h2>
+
+    <div class="row">
+        {% for job in jobs %}
+            <div class="col-6">
+                <h4 class="text-bolder"><span class="mr-2"><i class="fal fa-{{ job.icon }}"></i></span> {{ job.name }}
+                </h4>
+                <p style="color: #999;"><i class="fal fa-map-marker-alt"></i> {{ job.location }} — <i
+                            class="fal fa-calendar-alt"></i> {{ job.dates.start|date('M Y') }}
+                    {% if job.dates.end|date('Ym')!=job.dates.start|date('Ym') %}
+                        - {{ job.dates.end ? job.dates.end|date('M Y'):"now" }}
+                    {% endif %}
+                </p>
+                <div>{{ job.description }}</div>
+                <div>
+                    {% for tag in job.tags %}
+                        <span class="badge badge-info">{{ tag }}</span>
+                    {% endfor %}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row ">
+        <div class="col">
+
+            <h2>Education</h2>
+
+            {% for study in studies %}
+                <div class="row no-gutters">
+                    <h4 class="text-bolder">{{ study.name }}</h4>
+                    <p style="color: #999;"><i class="fal fa-graduation-cap"></i> {{ study.location }} — <i
+                                class="fal fa-calendar-alt"></i> {{ study.dates.start|date('M Y') }}
+                        {% if study.dates.end|date('Ym')!=study.dates.start|date('Ym') %}
+                            - {{ study.dates.end ? study.dates.end|date('M Y'):"now" }}
+                        {% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col">
+            <h2>Miscellaneous</h2>
+            <div class="row no-gutters">
+                <div class="misc-row no-gutters">
+                    <ul class="list-inline">
+                        {% for misc in miscellaneous %}
+                            <li class="list-inline-item">
+                                <h5><span style=""><i class="fal fa-{{ misc.icon }}"></i></span>
+                                    {{ misc.name }}
+                                    <small>{{ misc.description }}</small>
+                                </h5>
+                            </li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="next-page"></div>
+    {% include "details.html.twig" %}
+    <footer class="text-center fixed-bottom">
+        {{ user.firstname }} {{ user.lastname|upper }} - <i class="fal fa-envelope"></i> {{ user.email }} -
+        <i class="fal fa-phone"></i> {{ user.phone }}
+    </footer>
+</div>
+
+
+</body>
+</html>
+
