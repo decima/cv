@@ -9,7 +9,7 @@ user:
   blog: d3cima.com
   subtitle: Looking for new challenges
   description: |
-    Initialy as a Backend Developer, I'm currently in charage of all the infrastructure in production of my company. I'm looking for opportunities to improve my skills and go further with new technical constraints and challenges.
+    Initialy as a Backend Developer, I'm currently in charge of all the infrastructure in production of my company. I'm looking for opportunities to improve my skills and go further with new technical constraints and challenges.
 social:
   github: [https://github.com/decima,decima]
   stack-overflow: [https://stackoverflow.com/users/3717767/d3cima,d3cima]
@@ -30,16 +30,22 @@ skills:
   Ops:
     _icon: terminal
     Linux/Unix: 95
-    Elasticsearch: 90
     Docker: 92
-    Docker Swarm: 90
-    Kubernetes: 65
+    Nginx: 75
     Traefik: 85
-    Nginx/Apache: 75
+    Elasticsearch: 90
     OpenVPN: 75
+    Docker Swarm: 80
+  Languages:
+    _icon: flag-alt
+    French:
+    Bulgarian:
+    English:
+    Spanish:
+
 jobs:
   - name: Aboutgoods Company
-    icon: rocket-launch
+    icon: seedling
     location: Annecy - France
     dates:
       start: 2015-09-28
@@ -67,7 +73,7 @@ jobs:
     dates:
       start: 2014-06-01
       end: 2015-09-01
-    icon: rocket
+    icon: seedling
     description: Working for a small company as the main developer. The main activity of the company is buying through their own website and selling over marketplaces like Amazon, Priceminister, CDiscount, Fnac.com.
     tags: [Developer, PHP, Amazon marketplace  ]
 studies:

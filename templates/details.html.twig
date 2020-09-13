@@ -1,19 +1,111 @@
+{% import "macros.html.twig" as util %}
 <div class="details">
-    {% for detail in details %}
-        <h4>{{ detail.title }}</h4>
-        <div class="description">
-            {{ detail.description|md|raw }}
-        </div>
+    {% for title,detail_list in details %}
+        <section>
+
+            <h1>{{ title }}</h1>
+
+            {% for detail in detail_list %}
+                <h3>{{ detail.title }} <small class="float-right">{{ detail.range }}</small></h3>
+
+                <div class="description">
+                    {{ detail.description|md|raw }}
+                </div>
+                {% if detail.missions %}
+                    <h4>Missions</h4>
+                    <div class="row">
+                        <div class="col grid">
+                            {% for mission in detail.missions %}
+                                <div class=" mission-box">
+                                    <div class="row">
+                                        <div class=" col title"><span
+                                                    class="float-left">{{ mission.title|md|raw }}</span>
+                                            <span class="float-right"><i
+                                                        class="fal fa-clock"></i> {{ mission.daterange }}</span></div>
+                                    </div>
+                                    <div class="description">{{ mission.description|md|raw }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if detail.skills %}
+
+                    <h4>Skills</h4>
+                    <div class="row">
+                        {% if detail.skills.advanced %}
+                            {{ util.skillPrinter("Advanced","rocket-launch",detail.skills.advanced) }}
+                        {% endif %}
+                        {% if detail.skills.intermediate %}
+                            {{ util.skillPrinter("Intermediate","car",detail.skills.intermediate) }}
+                        {% endif %}
+
+                        {% if detail.skills.casual %}
+                            {{ util.skillPrinter("Casual","biking",detail.skills.casual) }}
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                {% if detail.references|length>0 %}
+                    <h4>References</h4>
+                    <ul>
+                        {% for ref in detail.references %}
+                            <li>{{ ref }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        </section>
     {% endfor %}
 </div>
 <style>
-    .details h4 {
-        border-bottom: 2px solid var(--main-color);
-        color: var(--main-color);
+    .mission-box {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #F9F9F9;
+        border-radius: 10px;
+        border-right: 1px solid #999;
+        border-left: 1px solid #999;
+    }
 
+    .mission-box .title {
+        font-weight: bolder;
+    }
+
+    .details h1 {
+        page-break-before: always !important;
+
+    }
+
+    .details section h3:first-of-type {
+        margin-top: 20px;
+    }
+
+    .details section h3:not(:first-of-type) {
+        margin-top: 40px;
+    }
+
+    .details section h3 {
+        margin-bottom: 20px;
+    }
+
+    .details h3 {
+        border-bottom: 2px solid var(--secondary-color);
+        color: var(--secondary-color);
     }
 
     .details .description {
         text-align: justify;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        float: left;
+    }
+
+    .details h4 {
+        font-weight: bolder;
     }
 </style>

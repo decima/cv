@@ -1,0 +1,9 @@
+{% macro skillPrinter(title,icon, skills) %}
+    <div class="col-4">
+        <h5><i class="fal fa-{{ icon }}"></i> {{ title }}</h5>
+
+        {% for skill in skills %}
+            <span class=" badge badge-info">{{ skill }}</span>
+        {% endfor %}
+    </div>
+{% endmacro %}
