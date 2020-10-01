@@ -3,27 +3,27 @@
     {% for title,detail_list in details %}
         <section>
 
-            <h1>{{ title }}</h1>
+            <h1>{{ title|t }}</h1>
 
             {% for detail in detail_list %}
-                <h3>{{ detail.title }} <small class="float-right">{{ detail.range }}</small></h3>
+                <h3>{{ detail.title|t }} <small class="float-right">{{ detail.range }}</small></h3>
 
                 <div class="description">
-                    {{ detail.description|md|raw }}
+                    {{ detail.description|t|md|raw }}
                 </div>
                 {% if detail.missions %}
-                    <h4>Missions</h4>
+                    <h4>{{ "Missions"|t }}</h4>
                     <div class="row">
                         <div class="col grid">
                             {% for mission in detail.missions %}
                                 <div class=" mission-box">
                                     <div class="row">
                                         <div class=" col title"><span
-                                                    class="float-left">{{ mission.title|md|raw }}</span>
+                                                    class="float-left">{{ mission.title|t|md|raw }}</span>
                                             <span class="float-right"><i
-                                                        class="fal fa-clock"></i> {{ mission.daterange }}</span></div>
+                                                        class="fal fa-clock"></i> {{ mission.daterange|t }}</span></div>
                                     </div>
-                                    <div class="description">{{ mission.description|md|raw }}</div>
+                                    <div class="description">{{ mission.description|t|md|raw }}</div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -31,7 +31,7 @@
                 {% endif %}
                 {% if detail.skills %}
 
-                    <h4>Skills</h4>
+                    <h4>{{ "Skills"|t }}</h4>
                     <div class="row">
                         {% if detail.skills.advanced %}
                             {{ util.skillPrinter("Advanced","rocket-launch",detail.skills.advanced) }}
@@ -47,10 +47,10 @@
                 {% endif %}
 
                 {% if detail.references|length>0 %}
-                    <h4>References</h4>
+                    <h4>{{ "References"|t}}</h4>
                     <ul>
                         {% for ref in detail.references %}
-                            <li>{{ ref }}</li>
+                            <li>{{ ref|t }}</li>
                         {% endfor %}
                     </ul>
                 {% endif %}
