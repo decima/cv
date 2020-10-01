@@ -29,6 +29,7 @@ Developer Experience:
           - Deploy applications in Production
           - Configure Monitoring of systems
           - Add alerting for systems slowdowns
+
           Lead with one assistant.
 
           Technologies in use: Docker, Docker Swarm, Prometheus, Grafana, Graylog
@@ -42,7 +43,7 @@ Developer Experience:
 
           Team: 5 developers
 
-          Techologies in use: PHP, Symfony 4 and 5, NodeJS, Socket.io
+          Techologies in use: PHP, Symfony 3 and 4, NodeJS, Socket.io
       - title: |
           [Resyntex](http://www.resyntex.eu/the-project) project
         description: |
@@ -112,7 +113,7 @@ Developer Experience:
         daterange: September 2014 - February 2015
       - title: Stocks and orders
         description: |
-          I've create a web platform for stock management which had for purpose to pull all products on Amazon.fr, Priceminister,
+          I've created a web platform for stock management which had for purpose to put for selling all products on Amazon.fr, Priceminister,
           Fnac.com and Cdiscount.com. The stock management tool had also to bring back the orders from the different marketplaces
           and update the quantities on other platforms. It generated also invoices which was needed by the team in order to prepare
           orders.
@@ -132,7 +133,7 @@ Developer Experience:
         daterange: October 2014 - July 2015
       - title: Extend tools to other markets
         description: |
-          I had to extend the market for books and Lego bricks, with reuse of all the previously developed platform.
+          I extended the platform for books and Lego bricks, with reuse of all the previously developed platform.
           For Lego the constraint was that the visitors were selling kilograms of bricks and then each bricks were selling
           one by one on different selling channels: Bricklink and Brickowl.
 
@@ -153,7 +154,7 @@ Developer Experience:
       - title: |
           [ARTE Green Guerilla](http://www.agence-hybrid.com/references/green-guerilla/)
         description: |
-          I had to design et implement a drupal 7 plugin for uploading videos. The video was uploaded by users on the website
+          I designed and implemented a drupal 7 plugin for uploading videos. The video was uploaded by users on the website
           and directly sent to youtube through its api.
 
           Technologies in use: Drupal 7, PHP 5, Youtube API
@@ -161,7 +162,7 @@ Developer Experience:
       - title: |
           [ADIE](https://www.adie.org/) intranet
         description: |
-          I had to design et implement a drupal 7 chat plugin for the ADIE intranet.
+          I designed et implemented a drupal 7 chat plugin for the ADIE intranet.
 
           Technologies in use: Drupal 7, PHP 5, JQuery
         daterange: May 2013
@@ -184,7 +185,7 @@ Developer Experience:
     missions:
       - title: Design and Implement the house-swapping website.
         description: |
-          I had to design et implement a website on my own to give people the ability to put offers of house-swapping.
+          I designed and implemented a website on my own to give people the ability to put offers of house-swapping.
 
           Technologies in use: PHP 5, JQuery, Bootstrap
         daterange: July 2012

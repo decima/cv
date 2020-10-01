@@ -87,6 +87,13 @@
             background-color: var(--main-color);
         }
 
+        @media screen {
+
+            footer {
+                display: none;
+            }
+        }
+
         .next-page {
             page-break-before: always;
             width: 100%;
@@ -105,10 +112,10 @@
         </div>
         -->
         <div class="col-10">
-            <h1><span class="text-thin">I am</span> <span class="text-bolder">{{ user.firstname }}</span>,
-                <br/><small class="text-normal">{{ user.title }}</small></h1>
-            <h3 class="text-thin">{{ user.subtitle }}</h3>
-            <p>{{ user.description }}</p>
+            <h1><span class="text-thin">{{ "I am"|t }}</span> <span class="text-bolder">{{ user.firstname|t }}</span>,
+                <br/><small class="text-normal">{{ user.title|t }}</small></h1>
+            <h3 class="text-thin">{{ user.subtitle|t }}</h3>
+            <p>{{ user.description|t }}</p>
         </div>
         <div class="col-2 float-right text-right">
 
@@ -122,17 +129,18 @@
         </div>
     </div>
 
-    <h2>Skills</h2>
+    <h2>{{ "Skills"|t }}</h2>
     <div class="row skills">
         {% for section, skill in skills %}
             <div class="col">
-                <h4><span><i class="fal fa-{{ skill._icon }}"></i></span> <span class="text-bolder">{{ section }}</span>
+                <h4><span><i class="fal fa-{{ skill._icon }}"></i></span> <span
+                            class="text-bolder">{{ section|t }}</span>
                 </h4>
                 <h4>
                     {% for item, level in skill %}
                         {% if item != "_icon" %}
                             <span class=" badge badge-info">
-                            {{ item }}
+                            {{ item|t }}
                     </span>
                         {% endif %}
                     {% endfor %}
@@ -142,12 +150,12 @@
 
     </div>
 
-    <h2>Work Experience</h2>
+    <h2>{{ "Work Experience"|t }}</h2>
 
     <div class="row">
         {% for job in jobs %}
             <div class="col-6">
-                <h4 class="text-bolder"><span class="mr-2"><i class="fal fa-{{ job.icon }}"></i></span> {{ job.name }}
+                <h4 class="text-bolder"><span class="mr-2"><i class="fal fa-{{ job.icon }}"></i></span> {{ job.name|t }}
                 </h4>
                 <p style="color: #999;"><i class="fal fa-map-marker-alt"></i> {{ job.location }} — <i
                             class="fal fa-calendar-alt"></i> {{ job.dates.start|date('M Y') }}
@@ -155,10 +163,10 @@
                         - {{ job.dates.end ? job.dates.end|date('M Y'):"now" }}
                     {% endif %}
                 </p>
-                <div>{{ job.description }}</div>
+                <div>{{ job.description|t }}</div>
                 <div>
                     {% for tag in job.tags %}
-                        <span class="badge badge-info">{{ tag }}</span>
+                        <span class="badge badge-info">{{ tag|t }}</span>
                     {% endfor %}</div>
             </div>
         {% endfor %}
@@ -166,12 +174,12 @@
     <div class="row ">
         <div class="col">
 
-            <h2>Education</h2>
+            <h2>{{ "Education"|t }}</h2>
 
             {% for study in studies %}
                 <div class="row no-gutters">
-                    <h4 class="text-bolder">{{ study.name }}</h4>
-                    <p style="color: #999;"><i class="fal fa-graduation-cap"></i> {{ study.location }} — <i
+                    <h4 class="text-bolder">{{ study.name|t }}</h4>
+                    <p style="color: #999;"><i class="fal fa-graduation-cap"></i> {{ study.location|t }} — <i
                                 class="fal fa-calendar-alt"></i> {{ study.dates.start|date('M Y') }}
                         {% if study.dates.end|date('Ym')!=study.dates.start|date('Ym') %}
                             - {{ study.dates.end ? study.dates.end|date('M Y'):"now" }}
@@ -182,15 +190,15 @@
         </div>
 
         <div class="col">
-            <h2>Miscellaneous</h2>
+            <h2>{{ "Miscellaneous"|t }}</h2>
             <div class="row no-gutters">
                 <div class="misc-row no-gutters">
                     <ul class="list-inline">
                         {% for misc in miscellaneous %}
                             <li class="list-inline-item">
                                 <h5><span style=""><i class="fal fa-{{ misc.icon }}"></i></span>
-                                    {{ misc.name }}
-                                    <small>{{ misc.description }}</small>
+                                    {{ misc.name|t }}
+                                    <small>{{ misc.description|t }}</small>
                                 </h5>
                             </li>
 
