@@ -1,8 +1,8 @@
 {
     "require": {
         "twig/twig": "^3.0",
-        "symfony/yaml": "^5.1",
+        "symfony/yaml": "^6.2",
         "erusev/parsedown": "^1.7",
-        "symfony/var-dumper": "^5.1"
+        "symfony/var-dumper": "^6.2"
     }
 }

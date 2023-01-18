@@ -1,15 +1,14 @@
 user:
   firstname: Henri
   lastname: Larget
-  title: DevOps Engineer
+  title: Backend Engineer
   birthdate: 1991-12-30
   email: henri@larget.fr
   phone: +33 6 81 79 05 20
   website: larget.fr
   blog: d3cima.com
   subtitle: Looking for new challenges
-  description: |
-    Initialy as a Backend Developer, I'm currently in charge of all the infrastructure in production of my company. I'm looking for opportunities to improve my skills and go further with new technical constraints and challenges.
+  description: ""
 social:
   github: [https://github.com/decima,decima]
   stack-overflow: [https://stackoverflow.com/users/3717767/d3cima,d3cima]
@@ -36,6 +35,8 @@ skills:
     Elasticsearch: 90
     OpenVPN: 75
     Docker Swarm: 80
+    Prometheus: 80
+    Graylog: 80
   Languages:
     _icon: flag-alt
     French:
@@ -44,15 +45,35 @@ skills:
     Spanish:
 
 jobs:
+  - name: Lepermislibre
+    icon: steering-wheel
+    location: Lyon - France - Remote
+    dates:
+      start: 2021-12-01
+      end: ~
+    description: |
+      Tech lead Backend of the company: Working with Symfony and PHP.
+      Working as data engineer with Tableau, DBT, HighTouch and BigQuery
+    tags: [PHP, Symfony, AWS, SQS, Tableau, DBT, Fivetran, HighTouch, BigQuery]
+  - name: MyDigitalSchool
+    icon: chalkboard-teacher
+    dates:
+      start: 2022-12-01
+      end: ~
+    location: Annecy - France
+    description: Docker and Advanced Linux Teacher.
+    tags: [ Teacher,Docker,Docker Swarm, Grafana, Graylog, Prometheus, ]
+
   - name: Aboutgoods Company
     icon: seedling
     location: Annecy - France
     dates:
       start: 2015-09-28
-      end: ~
+      end: 2021-11-24
     description: |
-      Lead DevOps of the company: Working with docker, and elasticsearch, in PHP, Go, Kotlin
-    tags: [DevOps, Docker, PHP, Go, Symfony, Elasticsearch, Traefik, Microservices , Kotlin ]
+      CTO of the company: Working with docker, and elasticsearch, in PHP, Go, Kotlin
+    tags: [DevOps, Docker, PHP, Go, Symfony, Elasticsearch, Traefik, Microservices , Kotlin, C++ ]
+
   - name: CCI Formation Haute-Savoie
     icon: chalkboard-teacher
     dates:
@@ -74,7 +95,7 @@ jobs:
       start: 2014-06-01
       end: 2015-09-01
     icon: seedling
-    description: Working for a small company as the main developer. The main activity of the company is buying through their own website and selling over marketplaces like Amazon, Priceminister, CDiscount, Fnac.com.
+    description: Working for the company as the main developer. The company is specialized into buying and reselling goods online.
     tags: [Developer, PHP, Amazon marketplace  ]
 studies:
   - name: Master's Degree in Computer Science
@@ -82,16 +103,6 @@ studies:
     dates:
       start: 2013-09-01
       end: 2015-09-01
-  - name: Bachelor in Computer Science
-    location: Université Lille - France
-    dates:
-      start: 2012-09-01
-      end: 2013-06-01
-  - name: Bachelor in Computer Science
-    location: University of Coventry - United Kingdom
-    dates:
-      start: 2011-09-01
-      end: 2012-06-01
 miscellaneous:
   - name: Piano
     icon: piano-keyboard
@@ -101,4 +112,4 @@ miscellaneous:
     description: in Role-playing Games
   - name: Travel
     icon: plane-departure
-    description: Europe, Argentina, Canada, USA, Africa
+    description: Europe, Argentina, Canada, USA,...

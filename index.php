@@ -14,7 +14,7 @@ $twig->addFilter(new \Twig\TwigFilter("md5", "md5"));
 $twig->addFilter(new \Twig\TwigFilter("md", [new Parsedown(), "text"]));
 $twig->addFilter(new \Twig\TwigFilter("t", function ($message, $arguments = []) use (&$translations) {
     if (!isset($translations[$message])) {
-        $translations[$message] = "";
+        $translations[$message] = $message;
     }
     return sprintf($translations[$message], ...$arguments);
 
